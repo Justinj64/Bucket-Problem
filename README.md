@@ -1,5 +1,5 @@
 # Data backup task 
-  (Tested on : Python 3.8.6)
+(Tested on : Python 3.8.6)
 
 ## - Problem Definition
 Buckets 1 and 2 contain backup of code and database respectively.  

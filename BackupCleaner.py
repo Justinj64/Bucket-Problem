@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import re
 
+## Class Deduple for Initializing and Routing
 class DeDuple:
     def __init__(self,path):
         self.path = path
@@ -60,5 +61,6 @@ class DeDuple:
                 os.remove(filename)
         
 ## Provide Path for the Folder
+## Example : r"Data backup task/bucket1/*.txt"
 Path = r"/*.txt"
 DeDuple(Path)
