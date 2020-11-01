@@ -9,13 +9,13 @@ class DeDuple:
         self.path = path
         self.df = pd.DataFrame(index=range(1,10))
         self.MainList = []
-        self.LoadDf()
-        self.Last5()
-        self.Last4()
-        self.DelFile()
+        self.load_df()
+        self.last_5()
+        self.last_4()
+        self.del_file()
     
     ## Loading filenames onto a Pandas Dataframe
-    def LoadDf(self):
+    def load_df(self):
         names = [os.path.basename(x) for x in glob.glob(self.path)]
         if len(names) == 0:
             print("Folder Empty")
@@ -26,7 +26,7 @@ class DeDuple:
         self.df = df
 
     ## Function to Grab Last 5 days and Last day of the Month
-    def Last5(self):
+    def last_5(self):
         if self.df.empty:
             print('DataFrame is empty!')
             return
@@ -40,7 +40,7 @@ class DeDuple:
         self.MainList.extend(last5 + lastday)
 
     ## Function to grab Last 4 Saturdays
-    def Last4(self):
+    def last_4(self):
         if self.df.empty:
             print('DataFrame is empty!')
             return
@@ -53,7 +53,7 @@ class DeDuple:
         self.MainList.extend(last4)
 
     ## Function to Delete the rest    
-    def DelFile(self):
+    def del_file(self):
         suffix = self.names[0].split("\\")[1].split("_")[0]
         file_name = [suffix+"_backup_"+i+".txt" for i in self.MainList]
         for filename in self.names:
@@ -62,5 +62,5 @@ class DeDuple:
         
 ## Provide Path for the Folder
 ## Example : r"Data backup task/bucket1/*.txt"
-Path = r"/*.txt"
+Path = r"bucket2/*.txt"
 DeDuple(Path)
